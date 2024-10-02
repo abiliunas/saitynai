@@ -8,7 +8,7 @@ bazėje ir juos bus galima naudoti. Administratorius turi galimybę skaityt IS n
 Demo naudotojas galės naudoti sistemą, tik jo pakeitimai nebus saugomi duomenų bazėje ir
 sistema jam atitiks demo versiją.
 
-##### Funkciniai reikalavimai
+### Funkciniai reikalavimai
 
 Neregistruotas sistemos naudotojas gales:
 
@@ -32,7 +32,7 @@ Registruotas naudotojas galės (tėvas):
 * Matyti vaikų išlaidas.
 * Matyti vaikų įplaukas.
 
-##### Sistemos realizacijai naudojamos technologijos
+### Sistemos realizacijai naudojamos technologijos
 
 * Front end – React.js (Javascript)
 * Back end – .Net
