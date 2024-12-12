@@ -37,3 +37,5 @@ Registruotas naudotojas galės (tėvas):
 * Front end – React.js (Javascript)
 * Back end – .Net
 * DataBase – MySQLite (MySQL embedded)
+
+![1734044541223](image/README/1734044541223.png)
