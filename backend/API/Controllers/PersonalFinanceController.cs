@@ -24,11 +24,12 @@ namespace API.Controllers
         {
             var user = await _userManager.FindByNameAsync(id);
 
-            if(user != null) {
-                return await _context.PersonalFinances.ToListAsync();
+            if (user == null)
+            {
+                return NotFound($"User with username {id} not found.");
             }
 
-            return Ok(new List<PersonalFinance>());
+            return await _context.PersonalFinances.ToListAsync();
         }
 
         [HttpPost("")]
@@ -36,15 +37,18 @@ namespace API.Controllers
         {
             var existingPersonalFinance = await _context.PersonalFinances.FirstOrDefaultAsync(x => x.Id == request.Id);
 
-            if (existingPersonalFinance == null) {
+            if (existingPersonalFinance == null)
+            {
                 request.CreatedOn = DateTime.Now;
                 request.FormatedDateTimeString = request.CreatedOn.ToString("yyyy-MM-dd");
                 request.EditedOn = DateTime.Now;
                 await _context.PersonalFinances.AddAsync(request);
                 await _context.SaveChangesAsync();
-                
+
                 return Ok(request);
-            } else {
+            }
+            else
+            {
                 existingPersonalFinance.ExpenceIncomeType = request.ExpenceIncomeType;
                 existingPersonalFinance.ExpenceIncomeName = request.ExpenceIncomeName;
                 existingPersonalFinance.Amount = request.Amount;
